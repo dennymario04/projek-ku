@@ -1,0 +1,2 @@
+INSERT INTO calon_siswa (nama,alamat,noHp,email,jurusan,asal_sekolah)
+VALUES ("Denny Mario","Jalan Lintas Kubu Km.31","082267414308","dennymario.id@gmail.com","Tekhnik Komputer dan Jaringan","SMPN 3 Kubu");
