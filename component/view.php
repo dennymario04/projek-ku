@@ -10,7 +10,7 @@
 
 <body>
     <a href="../index.php">- Back</a>
-    <table border="1">
+    <table border="1" style="width: 100%;">
         <thead>
             <tr>
                 <th>ID Pendaftar</th>
@@ -24,9 +24,9 @@
             </tr>
         </thead>
         <tbody>
-       
+
             <tr>
-    <?php
+                <?php
     include '../Config/conf.php';
     $sql = "SELECT * FROM calon_siswa";
     $result = $conn -> query($sql);
@@ -40,15 +40,19 @@
                 <td><?php echo $row["email"]; ?></td>
                 <td><?php echo $row["jurusan"]; ?></td>
                 <td><?php echo $row["asal_sekolah"]; ?></td>
+                <td>
+                    <a href="#">Edit</a>
+                    <a href="../component/hapus.php?id_pendaftar=<?php echo $row["id_pendaftar"];?>">Hapus</a>
+                </td>
             </tr>
             <?php
             }
         }   
         ?>
         </tbody>
-      
+
     </table>
-   
+
 
 
     <p>Total: <?php echo mysqli_num_rows($result); ?></p>
