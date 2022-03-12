@@ -13,8 +13,8 @@ if(isset($_POST['submit'])){
     $sql = "INSERT INTO calon_siswa(nama,alamat,noHp,email,jurusan,asal_sekolah) 
             VALUES('$nama','$alamat','$noHp','$email','$jurusan','$asalSekolah')";
     if($conn -> query($sql)===TRUE){
-        echo "Data berhasil ditambahkan";
+        header('Location: ../index.php?status=sukses');
     }else{
-        echo "Data tidak berhasil ditambahkan ".$sql. "<br>".$conn->error;
+        header('Location: ../index.php?status=gagal');
     }
 }
