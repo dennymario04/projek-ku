@@ -22,17 +22,17 @@
             <input type="text" name="noHp" id="noHp"> <br>
             <label for="email">Email</label> 
             <input type="email" name="email" id="email"> <br>
-            <p>Pilih Jurusan : </p>
-            <input type="radio" name="jurusan" id="tkj" value="Tekhnik Komputer dan Jaringan">
-            <label for="tkj">Tekhnik Komputer dan Jaringan</label> <br>
-            <input type="radio" name="jurusan" id="tsm" value="Tekhnik Sepeda Motor">
-            <label for="tkj">Tekhnik Sepeda Motor</label> <br>
-            <input type="radio" name="jurusan" id="akb" value="Akuntansi dan Bisnis">
-            <label for="tkj">Akuntansi dan Bisnis</label> <br>
-            <label for="asal_sekolah">Asal Sekolah</label>
-            <input type="text" name="asal_sekolah" id="asal_sekolah">
+            <p>Pilih Jurusan:</p>
+            <select name="jurusan">
+                <option>Tekhnik Komputer dan Jaringan</option>
+                <option>Tekhnik Sepeda Motor</option>
+                <option>Akuntansi dan Bisnis</option>
+            </select>
+            <br>
+            <label for="asal_sekolah">Asal sekolah</label>
+            <input type="text" name="asal_sekolah" id="asal_sekolah"> <br>
 
-            <input type="submit" value="submit" id="submit">
+            <input type="submit" name="submit" value="submit" id="submit">
         </form>
     </div>
 </body>

@@ -1,5 +1,5 @@
 <?php
-include "../Config/conf.php";
+require "../Config/conf.php";
 if(isset($_POST['submit'])){
     //ambil data dari form
     $nama = $_POST['nama']; 
@@ -12,9 +12,10 @@ if(isset($_POST['submit'])){
     //query sql
     $sql = "INSERT INTO calon_siswa(nama,alamat,noHp,email,jurusan,asal_sekolah) 
             VALUES('$nama','$alamat','$noHp','$email','$jurusan','$asalSekolah')";
-    if($conn -> query($sql)===TRUE){
-        header('Location: ../index.php?status=sukses');
+    $query = mysqli_query($conn,$sql);
+    if($query){
+        echo "<script>alert('Data sudah berhasil tersimpan');window.location='../index.php'</script>";
     }else{
-        header('Location: ../index.php?status=gagal');
+        echo "<script>alert('Data Gagal disimpan,cek kembali!');window.location='../component/form_daftar.php'</script>";
     }
 }
