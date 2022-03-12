@@ -9,7 +9,7 @@
 </head>
 
 <body>
-
+    <a href="../index.php">- Back</a>
     <table border="1">
         <thead>
             <tr>

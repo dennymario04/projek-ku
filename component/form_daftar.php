@@ -9,6 +9,7 @@
 </head>
 
 <body>
+    <a href="../index.php">- Back</a>
     <h1>Form Pendaftar</h1>
     <div class="form-regis">
         <form action="../component/insertDb.php" method="post">
