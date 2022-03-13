@@ -7,7 +7,6 @@ if( !isset($_GET['id_pendaftar']) ){
 
 //ambil id dari query string
 $id = $_GET['id_pendaftar'];
-
 // buat query untuk ambil data dari database
 $sql = "SELECT * FROM calon_siswa WHERE id_pendaftar=$id";
 $query = mysqli_query($conn, $sql);
@@ -34,15 +33,15 @@ if( mysqli_num_rows($query) < 1 ){
         <form action="../component/edit.php" method="post">
             <h3>Isi data anda dibawah ini</h3>
             <label for="nama">Nama</label>
-            <input type="text" name="nama" id="nama" value="<?php echo $view['nama'];?>"> <br>
+            <input type="text" name="nama" id="nama" value="<?php echo $siswa['nama'];?>"> <br>
             <label for="alamat">Alamat</label>
-            <input type="text" name="alamat" id="alamat" value="<?php echo $view['alamat'];?>"> <br>
+            <input type="text" name="alamat" id="alamat" value="<?php echo $siswa['alamat'];?>"> <br>
             <label for="noHp">Nomor HP</label>
-            <input type="text" name="noHp" id="noHp" value="<?php echo $view["noHp"];?>"> <br>
+            <input type="text" name="noHp" id="noHp" value="<?php echo $siswa["noHp"];?>"> <br>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" value="<?php $view["email"];?>"> <br>
+            <input type="email" name="email" id="email" value="<?php $siswa["email"];?>"> <br>
             <p>Pilih Jurusan:</p>
-            <?php $view["jurusan"];?>
+            <?php $siswa["jurusan"];?>
             <select name="jurusan">
                 <option <?php echo($jurusan == 'Tekhnik Komputer dan Jaringan')?"selected":""?>>Tekhnik Komputer dan Jaringan</option>
                 <option <?php echo($jurusan == 'Tekhnik Sepeda Motor')?"selected":""?>>Tekhnik Sepeda Motor</option>
@@ -50,7 +49,7 @@ if( mysqli_num_rows($query) < 1 ){
             </select>
             <br>
             <label for="asal_sekolah">Asal sekolah</label>
-            <input type="text" name="asal_sekolah" id="asal_sekolah" value="<?php echo $view['asal_sekolah'];?>"> <br>
+            <input type="text" name="asal_sekolah" id="asal_sekolah" value="<?php echo $siswa['asal_sekolah'];?>"> <br>
             <input type="submit" name="submit" value="submit" id="submit">
         
         </form>
