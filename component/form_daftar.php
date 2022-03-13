@@ -53,20 +53,20 @@
             <h1 style="text-align:center; margin:20px;">Sekolah IT | Daftar Baru</h1>
             <div class="mb-3">
                 <label for="nama" id="nama" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="nama" name="nama">
+                <input type="text" class="form-control" id="nama" name="nama" required>
             </div>
 
             <div class="mb-3">
                 <label for="alamat" id="alamat" class="form-label">Alamat</label>
-                <input type="text" class="form-control" id="alamat" name="alamat">
+                <input type="text" class="form-control" id="alamat" name="alamat" required>
             </div>
             <div class="mb-3">
                 <label for="noHp" id="noHp" class="form-label">Nomor Handphone / Whatsapp</label>
-                <input type="text" class="form-control" id="noHp" name="noHp">
+                <input type="text" class="form-control" id="noHp" name="noHp" required>
             </div>
             <div class="mb-3">
                 <label for="email" id="email" class="form-label">Masukan Email</label>
-                <input type="email" class="form-control" id="nama" name="email">
+                <input type="email" class="form-control" id="nama" name="email" required>
             </div>
             <div class="input-group mb-3">
                 <label class="input-group-text" for="jurusan">Jurusan</label>
@@ -79,7 +79,7 @@
             </div>
             <div class="mb-3">
                 <label for="asal_sekolah" id="asal_sekolah" class="form-label">Asal sekolah</label>
-                <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah">
+                <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah" required>
             </div>
 
             <button type="submit" name="submit" id="submit" class="btn btn-primary">Daftar</button>
