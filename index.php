@@ -37,7 +37,7 @@
   </div>
 </nav>
 
-    <h1 style="text-align: center;">Sekolah IT</h1>
+    <h1 style="text-align: center; padding : 25px;">Sekolah IT</h1>
     <p style="text-align: center;">Sistem manajemen pendaftaran siswa baru Sekolah IT</p>
     <ul class="nav justify-content-center">
   <li class="nav-item">
