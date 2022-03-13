@@ -1,3 +1,6 @@
+<?php
+require "../Config/conf.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
