@@ -19,5 +19,8 @@ if($conn -> query($sql)===TRUE){
 </head>
 <body>
     <h1>Edit Data</h1>
+    <form action="../component/edit.php">
+        
+    </form>
 </body>
 </html>

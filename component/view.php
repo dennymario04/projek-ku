@@ -41,7 +41,7 @@
                 <td><?php echo $row["jurusan"]; ?></td>
                 <td><?php echo $row["asal_sekolah"]; ?></td>
                 <td>
-                    <a href="#">Edit</a>
+                    <a href="../component/edit.php?id_pendaftar=<?php echo $row["id_pendafatar"]?>">Edit</a>
                     <a href="../component/hapus.php?id_pendaftar=<?php echo $row["id_pendaftar"];?>">Hapus</a>
                 </td>
             </tr>
