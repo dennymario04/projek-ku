@@ -31,7 +31,9 @@ if( mysqli_num_rows($query) < 1 ){
     <h1>Edit Data</h1>
     <div class="form-regis">
         <form action="../component/edit.php" method="post">
-            <h3>Isi data anda dibawah ini</h3>
+            <h3>Edit Data</h3>
+            <label for="ID">ID Pendaftar</label>
+            <input type="hidden" name="id_pendaftar" id="id_pendaftar"  value="<?php echo $siswa["id_pendaftar"];?>"> <br>
             <label for="nama">Nama</label>
             <input type="text" name="nama" id="nama" value="<?php echo $siswa['nama'];?>"> <br>
             <label for="alamat">Alamat</label>
@@ -39,13 +41,13 @@ if( mysqli_num_rows($query) < 1 ){
             <label for="noHp">Nomor HP</label>
             <input type="text" name="noHp" id="noHp" value="<?php echo $siswa["noHp"];?>"> <br>
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" value="<?php $siswa["email"];?>"> <br>
+            <input type="email" name="email" id="email" value="<?php echo $siswa["email"];?>"> <br>
             <p>Pilih Jurusan:</p>
             <?php $siswa["jurusan"];?>
             <select name="jurusan">
-                <option <?php echo($jurusan == 'Tekhnik Komputer dan Jaringan')?"selected":""?>>Tekhnik Komputer dan Jaringan</option>
-                <option <?php echo($jurusan == 'Tekhnik Sepeda Motor')?"selected":""?>>Tekhnik Sepeda Motor</option>
-                <option <?php echo($jurusan == 'Akuntansi dan Bisnis')?"selected":""?>>Akuntansi dan Bisnis</option>
+                <option <?php echo($siswa == 'Tekhnik Komputer dan Jaringan')?"selected":""?>>Tekhnik Komputer dan Jaringan</option>
+                <option <?php echo($siswa == 'Tekhnik Sepeda Motor')?"selected":""?>>Tekhnik Sepeda Motor</option>
+                <option <?php echo($siswa == 'Akuntansi dan Bisnis')?"selected":""?>>Akuntansi dan Bisnis</option>
             </select>
             <br>
             <label for="asal_sekolah">Asal sekolah</label>
