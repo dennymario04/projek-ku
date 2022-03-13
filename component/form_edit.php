@@ -1,14 +1,22 @@
 <?php
 require "../Config/conf.php";
-if(!isset($_GET['id_pendaftar'])){
-    header("location : ../component/view.php");
+
+if( !isset($_GET['id_pendaftar']) ){
+    header('Location: view.php');
 }
-$id = $_GET["id_pendaftar"];
-$sql = "SELECT * FROM calon_siswa WHERE id_pendaftar = $id";
-$siswa = $conn -> query($sql);
-if($siswa -> num_rows > 0){
-    while($view = $siswa -> fetch_assoc()){
- 
+
+//ambil id dari query string
+$id = $_GET['id_pendaftar'];
+
+// buat query untuk ambil data dari database
+$sql = "SELECT * FROM calon_siswa WHERE id_pendaftar=$id";
+$query = mysqli_query($conn, $sql);
+$siswa = mysqli_fetch_assoc($query);
+
+// jika data yang di-edit tidak ditemukan
+if( mysqli_num_rows($query) < 1 ){
+    die("data tidak ditemukan...");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -44,10 +52,7 @@ if($siswa -> num_rows > 0){
             <label for="asal_sekolah">Asal sekolah</label>
             <input type="text" name="asal_sekolah" id="asal_sekolah" value="<?php echo $view['asal_sekolah'];?>"> <br>
             <input type="submit" name="submit" value="submit" id="submit">
-            <?php       
-             }
-        }
-            ?>
+        
         </form>
 </body>
 

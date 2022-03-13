@@ -26,7 +26,7 @@
         <tbody>
 
             <tr>
-                <?php
+    <?php
     include '../Config/conf.php';
     $sql = "SELECT * FROM calon_siswa";
     $result = $conn -> query($sql);
