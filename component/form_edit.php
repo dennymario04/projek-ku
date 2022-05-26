@@ -94,7 +94,7 @@ if( mysqli_num_rows($query) < 1 ){
         <div class="input-group mb-3">
             <label class="input-group-text" for="jurusan">Jurusan</label>
             <select class="form-select" id="jurusan" name="jurusan">
-                <option selected>Pilih Jurusan : </option>
+                <option selected disabled>Pilih Jurusan : </option>
                 <option <?php echo($siswa == 'Tekhnik Komputer dan Jaringan')?"selected":""?>>Tekhnik Komputer dan Jaringan</option>
                 <option <?php echo($siswa == 'Tekhnik Sepeda Motor')?"selected":""?>>Tekhnik Sepeda Motor</option>
                 <option <?php echo($siswa == 'Akuntansi dan Bisnis')?"selected":""?>>Akuntansi dan Bisnis</option>
