@@ -71,7 +71,7 @@
             <div class="input-group mb-3">
                 <label class="input-group-text" for="jurusan">Jurusan</label>
                 <select class="form-select" id="jurusan" name="jurusan">
-                    <option selected>Pilih Jurusan : </option>
+                    <option selected disabled>Pilih Jurusan : </option>
                     <option value="Tekhnik Komputer dan Jaringan">Tekhnik Komputer dan Jaringan</option>
                     <option value="Tekhnik Sepeda Motor">Tekhnik Sepeda Motor</option>
                     <option value="Akuntansi dan Bisnis">Akuntansi dan Bisnis</option>
