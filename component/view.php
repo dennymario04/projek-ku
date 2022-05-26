@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    
+
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,7 +21,8 @@
             font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
             color: black;
         }
-        td a:hover{
+
+        td a:hover {
             color: white;
         }
     </style>
@@ -62,6 +63,7 @@
                 <th scope="col">Jurusan</th>
                 <th scope="col">Sekolah Asal</th>
                 <th scope="col">Opsi</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -81,11 +83,13 @@
                 <td><?php echo $row["jurusan"]; ?></td>
                 <td><?php echo $row["asal_sekolah"]; ?></td>
                 <td>
-                <button type="button" class="btn btn-warning"><a href="../component/form_edit.php?id_pendaftar=<?php echo $row["id_pendaftar"]?>">Edit</a></button>
-                <button type="button" class="btn btn-danger"><a href="../component/hapus.php?id_pendaftar=<?php echo $row["id_pendaftar"];?>">Hapus</a></button>
+                    <button type="button" class="btn btn-warning"><a
+                            href="../component/form_edit.php?id_pendaftar=<?php echo $row["id_pendaftar"]?>">Edit</a></button>
+                    <button type="button" class="btn btn-danger"><a
+                            href="../component/hapus.php?id_pendaftar=<?php echo $row["id_pendaftar"];?>">Hapus</a></button>
                 </td>
+                
             </tr>
-
             <?php
             }
         }   
@@ -93,6 +97,8 @@
         </tbody>
     </table>
     <p style="float: right; margin:20px; padding:20px;">Total: <?php echo mysqli_num_rows($result); ?></p>
+
+
 
     <!-- Optional JavaScript; choose one of the two! -->
 
