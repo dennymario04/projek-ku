@@ -18,9 +18,25 @@ class Database{
     }
 }
 
+class Fungsi extends Database{
+    function viewData(){
+        $result = mysqli_query($this -> conn ,"SELECT * FROM calon_siswa");
+       if($result ->num_rows > 0){
+        echo 
+        "<script>
+            console.log('Data Fetch');
+        </script>";
+       }
+    }
+}
+
+
+
+
+
 $DBConn = new Database();
-
-
+$View = new Fungsi();
+$View -> viewData();
 /*
 $serverName = "localhost";
 $user = "root";
@@ -32,4 +48,8 @@ $conn = new mysqli($serverName,$user,$password,$database);
 if(mysqli_connect_error()){
     die("Tidak berhasil menghubungkan ke Database!!".mysqli_connect_error());
 }
+
+while($row = $result -> fetch_array()){
+            
+            }
 */
