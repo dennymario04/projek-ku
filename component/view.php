@@ -63,17 +63,16 @@
                 <th scope="col">Jurusan</th>
                 <th scope="col">Sekolah Asal</th>
                 <th scope="col">Opsi</th>
-                
+
             </tr>
         </thead>
         <tbody>
             <tr>
                 <?php
-    include '../Config/conf.php';
-    $sql = "SELECT * FROM calon_siswa";
-    $result = $conn -> query($sql);
-    if($result->num_rows > 0){
-        while($row = $result -> fetch_array()){
+    require_once '../Config/conf.php';
+    $result = $Fungsi -> viewData();
+    foreach($result as $row){
+    
     ?>
                 <td><?php echo $row["id_pendaftar"]; ?></td>
                 <td><?php echo $row["nama"]; ?></td>
@@ -83,35 +82,23 @@
                 <td><?php echo $row["jurusan"]; ?></td>
                 <td><?php echo $row["asal_sekolah"]; ?></td>
                 <td>
-                    <button type="button" class="btn btn-warning"><a
+                    <button type="button" class="btn btn-primary"><a
                             href="../component/form_edit.php?id_pendaftar=<?php echo $row["id_pendaftar"]?>">Edit</a></button>
                     <button type="button" class="btn btn-danger"><a
                             href="../component/hapus.php?id_pendaftar=<?php echo $row["id_pendaftar"];?>">Hapus</a></button>
                 </td>
-                
+
             </tr>
             <?php
             }
-        }   
-        ?>
+            ?>
         </tbody>
     </table>
-    <p style="float: right; margin:20px; padding:20px;">Total: <?php echo mysqli_num_rows($result); ?></p>
-
-
-
-    <!-- Optional JavaScript; choose one of the two! -->
-
-    <!-- Option 1: Bootstrap Bundle with Popper -->
+   
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 
-    <!-- Option 2: Separate Popper and Bootstrap JS -->
-    <!--
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    -->
 </body>
 
 </html>
