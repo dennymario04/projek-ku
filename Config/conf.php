@@ -39,7 +39,7 @@ class Fungsi extends Database{
             $jurusan = $_POST['jurusan'];
             $asalSekolah = $_POST['asal_sekolah'];
             //Operasi insert
-            $stmt = $conn -> prepare("INSERT INTO calon_siswa(nama,alamat,noHp,email,jurusan,asal_sekolah) VALUES (?,?,?,?,?,?)");
+            $stmt = $this->conn -> prepare("INSERT INTO calon_siswa(nama,alamat,noHp,email,jurusan,asal_sekolah) VALUES (?,?,?,?,?,?)");
             $stmt->bind_param('ssssss',$_POST['nama'],$_POST['alamat'],$_POST['noHp'],$_POST['email'],$_POST['jurusan'],$_POST['asal_sekolah']);
             $stmt->execute();
             if($stmt->affected_rows === 0){
@@ -49,6 +49,7 @@ class Fungsi extends Database{
             }
         }
     }
+    
 }
 
 
