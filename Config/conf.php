@@ -56,7 +56,6 @@ class Fungsi extends Database{
             header('Location: view.php');
         }
         $id = $_GET['id_pendaftar'];
-        // buat query untuk ambil data dari database
         $stmt = $this -> conn -> prepare("SELECT * FROM calon_siswa WHERE id_pendaftar = ?");
         $stmt -> bind_param('i',$_GET['id_pendaftar']);
         $stmt -> execute();
@@ -66,17 +65,6 @@ class Fungsi extends Database{
         }
         return $siswa;
 
-       
-        /*
-        #$sql = "SELECT * FROM calon_siswa WHERE id_pendaftar=$id";
-        #$query = mysqli_query($conn, $sql);
-        #$siswa = mysqli_fetch_assoc($query);
-        
-        // jika data yang di-edit tidak ditemukan
-        if( mysqli_num_rows($query) < 1 ){
-            die("data tidak ditemukan...");
-        }
-        */
         
     }
     function updateData(){
@@ -90,9 +78,6 @@ class Fungsi extends Database{
             $jurusan = $_POST['jurusan'];
             $asalSekolah = $_POST['asal_sekolah'];
         
-            //query sql
-           // $sql = "UPDATE calon_siswa SET nama ='$nama',alamat = '$alamat', noHp = '$noHp', email = '$email', jurusan = '$jurusan', asal_sekolah = '$asalSekolah'
-             //       WHERE id_pendaftar = $id";
             $stmt = $this -> conn -> prepare("UPDATE calon_siswa SET nama =?,alamat = ?,noHp = ?, email = ?, jurusan = ?, asal_sekolah = ? WHERE id_pendaftar = ?");
             $stmt -> bind_param('ssssssi',$_POST['nama'],$_POST['alamat'],$_POST['noHp'],$_POST['email'],$_POST['jurusan'],$_POST['asal_sekolah'],$_POST['id_pendaftar']);
             $stmt -> execute();
@@ -107,8 +92,7 @@ class Fungsi extends Database{
         if(isset($_GET['id_pendaftar'])){
             //ambil id dari tabel
             $id = $_GET['id_pendaftar'];
-            //buat query untuk menghapus data di tabel
-            //$sql = "DELETE FROM calon_siswa WHERE id_pendaftar=$id";
+         
             $stmt = $this -> conn -> prepare("DELETE FROM calon_siswa WHERE id_pendaftar=?");
             $stmt -> bind_param('i',$_GET['id_pendaftar']);
             $stmt -> execute();
@@ -122,29 +106,6 @@ class Fungsi extends Database{
     }
 }
 
-
-
-
-
-
-
 $DBConn = new Database();
 $Fungsi = new Fungsi();
 
-
-/*
-$serverName = "localhost";
-$user = "root";
-$password = "";
-$database = "sekolahit";
-//Membuat koneksi
-$conn = new mysqli($serverName,$user,$password,$database);
-
-if(mysqli_connect_error()){
-    die("Tidak berhasil menghubungkan ke Database!!".mysqli_connect_error());
-}
-
-while($row = $result -> fetch_array()){
-            
-            }
-*/
