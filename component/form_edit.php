@@ -1,23 +1,3 @@
-<?php
-require "../Config/conf.php";
-
-if( !isset($_GET['id_pendaftar']) ){
-    header('Location: view.php');
-}
-
-//ambil id dari query string
-$id = $_GET['id_pendaftar'];
-// buat query untuk ambil data dari database
-$sql = "SELECT * FROM calon_siswa WHERE id_pendaftar=$id";
-$query = mysqli_query($conn, $sql);
-$siswa = mysqli_fetch_assoc($query);
-
-// jika data yang di-edit tidak ditemukan
-if( mysqli_num_rows($query) < 1 ){
-    die("data tidak ditemukan...");
-}
-?>
-
 <!doctype html>
 <html lang="en">
 
@@ -34,7 +14,7 @@ if( mysqli_num_rows($query) < 1 ){
 </head>
 
 <body>
-<style>
+    <style>
         .form-edit {
             position: absolute;
             left: 50%;
@@ -66,12 +46,18 @@ if( mysqli_num_rows($query) < 1 ){
             </div>
         </div>
     </nav>
+    <?php
+        require "../Config/conf.php";
+        $data = $Fungsi -> pickupData();
+        foreach($data as $siswa){
+    ?>
 
     <!--form untuk edit Data-->
     <form action="../component/edit.php" method="post" class="form-edit">
         <h1>Sekolah IT | Edit</h1>
         <div class="mb-3">
-        <input type="hidden" name="id_pendaftar" id="id_pendaftar"  value="<?php echo $siswa["id_pendaftar"];?>"> <br>
+            <input type="hidden" name="id_pendaftar" id="id_pendaftar" value="<?php echo $siswa["id_pendaftar"];?>">
+            <br>
         </div>
 
         <div class="mb-3">
@@ -81,7 +67,8 @@ if( mysqli_num_rows($query) < 1 ){
 
         <div class="mb-3">
             <label for="alamat" id="alamat" class="form-label">Alamat</label>
-            <input type="text" class="form-control" id="alamat" name="alamat" required value="<?php echo $siswa["alamat"];?>">
+            <input type="text" class="form-control" id="alamat" name="alamat" required
+                value="<?php echo $siswa["alamat"];?>">
         </div>
         <div class="mb-3">
             <label for="noHp" id="noHp" class="form-label">Nomor Handphone / Whatsapp</label>
@@ -89,23 +76,29 @@ if( mysqli_num_rows($query) < 1 ){
         </div>
         <div class="mb-3">
             <label for="email" id="email" class="form-label">Masukan Email</label>
-            <input type="email" class="form-control" id="nama" name="email" required value="<?php echo $siswa["email"];?>"> 
+            <input type="email" class="form-control" id="nama" name="email" required
+                value="<?php echo $siswa["email"];?>">
         </div>
         <div class="input-group mb-3">
             <label class="input-group-text" for="jurusan">Jurusan</label>
             <select class="form-select" id="jurusan" name="jurusan">
                 <option selected disabled>Pilih Jurusan : </option>
-                <option <?php echo($siswa == 'Tekhnik Komputer dan Jaringan')?"selected":""?>>Tekhnik Komputer dan Jaringan</option>
+                <option <?php echo($siswa == 'Tekhnik Komputer dan Jaringan')?"selected":""?>>Tekhnik Komputer dan
+                    Jaringan</option>
                 <option <?php echo($siswa == 'Tekhnik Sepeda Motor')?"selected":""?>>Tekhnik Sepeda Motor</option>
                 <option <?php echo($siswa == 'Akuntansi dan Bisnis')?"selected":""?>>Akuntansi dan Bisnis</option>
             </select>
         </div>
         <div class="mb-3">
             <label for="asal_sekolah" id="asal_sekolah" class="form-label">Asal sekolah</label>
-            <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah" required value="<?php echo $siswa['asal_sekolah']?>"> 
+            <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah" required
+                value="<?php echo $siswa['asal_sekolah']?>">
         </div>
         <button type="submit" class="btn btn-warning" name="submit">Simpan</button>
     </form>
+    <?php 
+    }
+    ?>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
