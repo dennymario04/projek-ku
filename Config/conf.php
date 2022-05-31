@@ -49,8 +49,62 @@ class Fungsi extends Database{
             }
         }
     }
-    
+    #fungsi edit
+    function pickupData(){
+        #ini untuk form edit
+        if( !isset($_GET['id_pendaftar']) ){
+            header('Location: view.php');
+        }
+        $id = $_GET['id_pendaftar'];
+        // buat query untuk ambil data dari database
+        $stmt = $this -> conn -> prepare("SELECT * FROM calon_siswa WHERE id_pendaftar = ?");
+        $stmt -> bind_param('i',$_GET['id_pendaftar']);
+        $stmt -> execute();
+        $result = $stmt ->get_result();
+        while($data=$result->fetch_assoc()){
+            $siswa[] =$data;
+        }
+        return $siswa;
+
+       
+        /*
+        #$sql = "SELECT * FROM calon_siswa WHERE id_pendaftar=$id";
+        #$query = mysqli_query($conn, $sql);
+        #$siswa = mysqli_fetch_assoc($query);
+        
+        // jika data yang di-edit tidak ditemukan
+        if( mysqli_num_rows($query) < 1 ){
+            die("data tidak ditemukan...");
+        }
+        */
+        
+    }
+    function updateData(){
+        if(isset($_POST['submit'])){
+            //ambil data dari form
+            $id = $_POST['id_pendaftar'];
+            $nama = $_POST['nama']; 
+            $alamat = $_POST['alamat'];
+            $noHp = $_POST['noHp'];
+            $email = $_POST['email'];
+            $jurusan = $_POST['jurusan'];
+            $asalSekolah = $_POST['asal_sekolah'];
+        
+            //query sql
+           // $sql = "UPDATE calon_siswa SET nama ='$nama',alamat = '$alamat', noHp = '$noHp', email = '$email', jurusan = '$jurusan', asal_sekolah = '$asalSekolah'
+             //       WHERE id_pendaftar = $id";
+            $stmt = $this -> conn -> prepare("UPDATE calon_siswa SET nama =?,alamat = ?,noHp = ?, email = ?, jurusan = ?, asal_sekolah = ? WHERE id_pendaftar = ?");
+            $stmt -> bind_param('ssssssi',$_POST['nama'],$_POST['alamat'],$_POST['noHp'],$_POST['email'],$_POST['jurusan'],$_POST['asal_sekolah'],$_POST['id_pendaftar']);
+            $stmt -> execute();
+            if($stmt->affected_rows === 0){
+                echo "<script>alert('Data gagal diupdate');window.location='../component/form_edit.php'</script>";
+            }else{
+                echo "<script>alert('Data sudah diupdate');window.location='../component/view.php'</script>";
+            }
+        }
+    }
 }
+
 
 
 
