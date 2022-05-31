@@ -104,6 +104,9 @@ class Fungsi extends Database{
         
         }
     }
+    function doLogin(){
+        
+    }
 }
 
 $DBConn = new Database();
