@@ -105,7 +105,22 @@ class Fungsi extends Database{
         }
     }
     function doLogin(){
-        
+        session_start();
+        $email = $_POST['email'];
+        $pswd = $_POST['password'];
+
+        $stmt = $this -> conn -> prepare("SELECT calon_siswa.email,calon_siswa.nama,tbl_user.pswd 
+                                        FROM tbl_user INNER JOIN calon_siswa ON calon_siswa.id_pendaftar=tbl_user.id_pendaftar");
+        $stmt -> execute();
+        $result = $stmt ->get_result();
+        if($result -> num_rows > 0){
+            $_SESSION['email'] = $email;
+            $_SESSION['status'] = 'Login';
+            header("../component/login_home.php");
+        }else{
+            echo "<script>alert('Gagal Login');window.location='../component/login_page.php'</script>";
+        }
+       
     }
 }
 
