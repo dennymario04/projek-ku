@@ -103,6 +103,7 @@ class Fungsi extends Database{
             }
         
         }
+        
     }
     function doLogin(){
         session_start();
